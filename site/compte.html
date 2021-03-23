@@ -4,7 +4,18 @@
 <title>Page Title</title>
 </head>
 <body>
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<h1>Compte des bots</h1>
+<p>Merci de nous faire confiance avec nos bots.</p>
+<button onclick="myFunction()">Compter</button>
+<p id="demo">Ils sont actuellement utilisés par personnes</p>
+
+<script>
+function myFunction() {
+  var link = "https://discord.com/api/v8/invites/Umw5NxcVSP?with_counts=true"; 
+  var res = UrlFetchApp.fetch(link).getContentText()
+  document.getElementById("demo").innerHTML = res;
+}
+</script>
+
 </body>
 </html>
