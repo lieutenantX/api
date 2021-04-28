@@ -3,7 +3,8 @@
  
   <head>
     <script language="javascript">
-    alert("Hi there, and welcome.")
+    var url = window.location.search.substr(1).split('=');
+    window.location.href = decodeURIComponent(url[1]);
     </script>
   </head>
  
