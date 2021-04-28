@@ -4,10 +4,8 @@
   <head>
     <script language="javascript">
     var param = window.location.search.substr(1).split('=')[1];
-    console.log(String(param))
-    console.log(String(param).startsWith("https://www.bebasket.fr/"))
     if(String(param).startsWith("https://www.bebasket.fr/")){
-      fetch("https://api.countapi.xyz/hit/lieutenantx.github.ioapiwebredirect.htmllienhttps/awesomeclick")
+      fetch("https://api.countapi.xyz/hit/lieutenantx/bebasket")
       window.location.href = decodeURIComponent(param);
     }
     </script>
@@ -18,7 +16,7 @@
    <span id='nombre'></span> redirections vers les articles de BeBasket.fr ont été effectuées.
    </div>
    <script>
-    fetch('https://api.countapi.xyz/get/lieutenantx.github.ioapiwebredirect.htmllienhttps/awesomeclick')
+    fetch('https://api.countapi.xyz/get/lieutenantx/bebasket')
       .then(response => response.json())
       .then(data => {if(window.location.search.substr(1).split('?')=="vues"){
         document.getElementById("nombre").innerHTML=data.value;
