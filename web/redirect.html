@@ -3,10 +3,12 @@
  
   <head>
     <script language="javascript">
-    var param = window.location.search.substr(1).split('=');
-    if(param != "vues"){
+    var param = window.location.search.substr(1).split('=')[1];
+    console.log(String(param))
+    console.log(String(param).startsWith("https://www.bebasket.fr/"))
+    if(String(param).startsWith("https://www.bebasket.fr/")){
       fetch("https://api.countapi.xyz/hit/lieutenantx.github.ioapiwebredirect.htmllienhttps/awesomeclick")
-      window.location.href = decodeURIComponent(param[1]);
+      window.location.href = decodeURIComponent(param);
     }
     </script>
   </head>
@@ -18,7 +20,11 @@
    <script>
     fetch('https://api.countapi.xyz/get/lieutenantx.github.ioapiwebredirect.htmllienhttps/awesomeclick')
       .then(response => response.json())
-      .then(data => document.getElementById("nombre").innerHTML=data.value);
+      .then(data => {if(window.location.search.substr(1).split('?')=="vues"){
+        document.getElementById("nombre").innerHTML=data.value;
+      }else{
+        document.getElementById("texte").innerHTML="Lien de redirection invalide, cliquez <a href='https://www.bebasket.fr/'>ici</a> pour aller sur la page d'accueil"
+      }})
    </script>
   </body>
  
