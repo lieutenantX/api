@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+    <script language="javascript">
+    </script>
+    <title>Lieutenant X</title>
+    <link rel="icon" href="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128">
+  </head>
+ 
+  <body style="background-color: #23272a;">
+  <table  style="border-style: solid; background-color: #7289da; border-color: #23272a; margin-left: auto; margin-right: auto;", border="1", id="table"><caption style="color: #ffffff;">Voici la liste des bots et leurs statistiques</caption>
+  <tbody>
+  <tr>
+  <th style="background-color: #99aab5;">Nom</th>
+  <th style="width: 127px; background-color: #99aab5;">PDF</th>
+  <th style="width: 100px; background-color: #99aab5;">État</th>
+  <th style="background-color: #99aab5;">Nombre de serveur</th>
+  <th style="background-color: #99aab5;">Nombre d'utilisateurs</th>
+  </tr>
+  </tbody>
+  </table>
+   <script>
+    async function stats() {
+    let response = await fetch('https://raw.githubusercontent.com/lieutenantX/api/main/stats.json');
+    let data = await response.json();
+    var bots = data["stats"]["bots"];
+    var table = document.getElementById("table");
+
+    for (var i = 0; i < bots.length - 1; i++) {
+      var row = table.insertRow(-1);
+      for (var j = 0; j < 5; j++) {
+        var cell = row.insertCell(-1);
+        cell.innerHTML = bots[i][["nom","PDF","etat","serveurs","utilisateurs"][j]]
+        if (j==1){
+          if (cell.innerHTML == "") {cell.innerHTML = "Indisponible"
+          }else{cell.innerHTML = "<a href='cell.innerHTML'>Disponible</a>"}
+        }else if (j > 2){
+          cell.innerHTML = Intl.NumberFormat('fr-FR', { style: 'decimal'}).format(cell.innerHTML)
+        }
+
+        cell.style.textAlign = "center"
+        cell.style.backgroundColor = "#99aab5"
+      }
+      console.log(bots[i])
+    }
+    }
+    stats()
+   </script>
+  </body>
+ 
+</html>
