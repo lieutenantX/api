@@ -9,17 +9,37 @@
   </head>
  
   <body style="background-color: #23272a;">
-  <table  style="border-style: solid; background-color: #7289da; border-color: #23272a; margin-left: auto; margin-right: auto;", border="1", id="table"><caption style="color: #ffffff;">Voici la liste des bots et leurs statistiques</caption>
+  <p>&nbsp;</p>
+  <table style="width: 90%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
   <tbody>
   <tr>
-  <th style="background-color: #99aab5;">Nom</th>
-  <th style="width: 127px; background-color: #99aab5;">PDF</th>
-  <th style="width: 100px; background-color: #99aab5;">État</th>
-  <th style="background-color: #99aab5;">Nombre de serveur</th>
-  <th style="background-color: #99aab5;">Nombre d'utilisateurs</th>
+  <td style="width: 30%; background-color: #7289da;">
+  <h1 style="text-align: center;"><span id="bots" style="color: #ffffff;">0</span><br /><span style="color: #ffffff;">Bots</span></h1>
+  </td>
+  <td style="width: 5%;">&nbsp;</td>
+  <td style="width: 30%; background-color: #7289da;">
+  <h1 style="text-align: center;"><span id="serveurs" style="color: #ffffff;">0</span><br /><span style="color: #ffffff;">Serveurs</span></h1>
+  </td>
+  <td style="width: 5%;">&nbsp;</td>
+  <td style="width: 30%; background-color: #7289da;">
+  <h1 style="text-align: center;"><span id="utilisateurs" style="color: #ffffff;">0</span><br /><span style="color: #ffffff;">Utilisateurs</span></h1>
+  </td>
   </tr>
   </tbody>
   </table>
+  <p>&nbsp;</p>
+  <table  style="border-style: solid; background-color: #7289da; border-color: #23272a; margin-left: auto; margin-right: auto;", border="1", id="table"><caption style="color: #ffffff;"><h2>Voici la liste des bots et leurs statistiques</h2></caption>
+  <tbody>
+  <tr>
+  <th style="background-color: #ffffff;">Nom</th>
+  <th style="width: 127px; background-color: #ffffff;">PDF</th>
+  <th style="width: 100px; background-color: #ffffff;">État</th>
+  <th style="background-color: #ffffff;">&nbsp;Nombre de serveur&nbsp;</th>
+  <th style="background-color: #ffffff;">&nbsp;Nombre d'utilisateurs&nbsp;</th>
+  </tr>
+  </tbody>
+  </table>
+
    <script>
     async function stats() {
     let response = await fetch('https://raw.githubusercontent.com/lieutenantX/api/main/stats.json');
@@ -27,7 +47,7 @@
     var bots = data["stats"]["bots"];
     var table = document.getElementById("table");
 
-    for (var i = 0; i < bots.length - 1; i++) {
+    for (var i = 0; i <= bots.length - 1; i++) {
       var row = table.insertRow(-1);
       for (var j = 0; j < 5; j++) {
         var cell = row.insertCell(-1);
@@ -40,10 +60,13 @@
         }
 
         cell.style.textAlign = "center"
-        cell.style.backgroundColor = "#99aab5"
+        cell.style.backgroundColor = "#ffffff"
+      }}
+      document.getElementById("bots").innerHTML = data["stats"]["total"]["bots"][0]
+      document.getElementById("serveurs").innerHTML = data["stats"]["total"]["serveurs"][0]
+      document.getElementById("utilisateurs").innerHTML = data["stats"]["total"]["utilisateurs"][0]//Intl.NumberFormat('fr-FR', { style: 'decimal'}).format(Math.round(utilisateurs))
       }
-      console.log(bots[i])
-    }}
+
     stats()
    </script>
   </body>
