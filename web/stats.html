@@ -1,41 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
  
   <head>
     <script language="javascript">
     </script>
-    <title>Lieutenant X</title>
-    <link rel="icon" href="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128">
+    <title>Lieutenant X • Appli-Bot</title>
+    <link rel="icon" href="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128"/>
+    <link rel="stylesheet" href="styles/style.css"/>
   </head>
  
   <body style="background-color: #23272a;">
-  <p>&nbsp;</p>
+
+
+<div>
+  <table style="border-collapse: collapse; border-style: hidden; width: 100%; height: 50px" border="0">
+    <tbody>
+      <tr>
+        <td style="width: auto; height: 50px"><p style="vertical-align: middle; color: #ffffff; white-space:nowrap; font-size: 30px"><img style="vertical-align: middle;" src="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128" alt="" width="50" height="50" />&nbsp;&nbsp;<strong>Appli-Bot</strong></p>
+        </td>
+        <td style="width: 50%;">&nbsp;</td>
+        <!-- <td style="width: auto;">
+          <div id="wrap">
+            <ul class="navbar">
+              <li>
+                <a href="#">
+                   Tu
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                   Es
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                       Un
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Petit
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Malin,
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Bravo
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                   Après
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                       CSS de Base
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       PHP de Base
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       JavaScript de Base
+                    </a>
+                  </li>
+                </ul> 
+              </li>
+              <li>
+                <a href="#">
+                   La
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                       Images géométriques
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Pipette de couleur
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Générateur de code
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Éditeur HTML
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Base 64
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                   Flemme de
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                       CSS
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       JavaScript
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Angular
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Java
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                   Tout Compléter
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                       Inverse de chaîne
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Encodeur d'URL
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Décapant des lignes vides
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                       Compte des mots de chaîne
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </td> -->
+        <td style="width: 50%;">
+           
+        </td>
+        <td style="width: auto; text-align: center; color: #ffffff; white-space: nowrap;">Mis à jour le <br><a id="date"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>&nbsp;<br>&nbsp;<br>&nbsp;</div>
+
   <table style="width: 90%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
   <tbody>
   <tr>
-  <td style="width: 30%; background-color: #7289da;">
+  <td class="table_total">
   <h1 style="text-align: center;"><span id="bots" style="color: #ffffff;">0</span><br /><span style="color: #ffffff;">Bots</span></h1>
   </td>
-  <td style="width: 5%;">&nbsp;</td>
-  <td style="width: 30%; background-color: #7289da;">
+  <td class="table_separation">&nbsp;</td>
+  <td class="table_total">
   <h1 style="text-align: center;"><span id="serveurs" style="color: #ffffff;">0</span><br /><span style="color: #ffffff;">Serveurs</span></h1>
   </td>
-  <td style="width: 5%;">&nbsp;</td>
-  <td style="width: 30%; background-color: #7289da;">
+  <td class="table_separation">&nbsp;</td>
+  <td class="table_total">
   <h1 style="text-align: center;"><span id="utilisateurs" style="color: #ffffff;">0</span><br /><span style="color: #ffffff;">Utilisateurs</span></h1>
   </td>
   </tr>
   </tbody>
   </table>
   <p>&nbsp;</p>
-  <table  style="border-style: solid; background-color: #7289da; border-color: #23272a; margin-left: auto; margin-right: auto;", border="1", id="table"><caption style="color: #ffffff;"><h2>Voici la liste des bots et leurs statistiques</h2></caption>
+  <table  style="border-style: solid; background-color: #7289da; border-color: #23272a; margin-left: auto; margin-right: auto; text-align: center;", border="1", id="table"><caption style="color: #ffffff;"><h2>Voici la liste des bots et leurs statistiques</h2></caption>
   <tbody>
-  <tr>
-  <th style="background-color: #ffffff;">Nom</th>
-  <th style="width: 127px; background-color: #ffffff;">PDF</th>
-  <th style="width: 100px; background-color: #ffffff;">État</th>
-  <th style="background-color: #ffffff;">&nbsp;Nombre de serveur&nbsp;</th>
-  <th style="background-color: #ffffff;">&nbsp;Nombre d'utilisateurs&nbsp;</th>
+  <tr style="background-color: #ffffff">
+  <th>Nom</th>
+  <th style="width: 127px;">PDF</th>
+  <th style="width: 100px;">État</th>
+  <th>&nbsp;Nombre de serveur&nbsp;</th>
+  <th>&nbsp;Nombre d'utilisateurs&nbsp;</th>
   </tr>
   </tbody>
   </table>
@@ -58,17 +225,60 @@
         }else if (j > 2){
           cell.innerHTML = Intl.NumberFormat('fr-FR', { style: 'decimal'}).format(cell.innerHTML)
         }
-
-        cell.style.textAlign = "center"
         cell.style.backgroundColor = "#ffffff"
       }}
       document.getElementById("bots").innerHTML = data["stats"]["total"]["bots"][0]
       document.getElementById("serveurs").innerHTML = data["stats"]["total"]["serveurs"][0]
       document.getElementById("utilisateurs").innerHTML = data["stats"]["total"]["utilisateurs"][0]//Intl.NumberFormat('fr-FR', { style: 'decimal'}).format(Math.round(utilisateurs))
+      document.getElementById("date").innerHTML = data["dateMaj"]
       }
 
     stats()
    </script>
+
+
+<td style="width: auto; height: 50px"><p style="text-align: center; color: #ffffff; white-space:nowrap; font-size: 30px">Serveurs Partenaires</p>
+        </td>
+<div class='wrapper'>
+  <div class='carousel'>
+    <div class='carousel__item' onclick="window.open('https://discord.com/invite/dYpRDg6B7Q', '_blank')">
+      <div class='carousel__item-head'>
+        <img src=https://cdn.discordapp.com/icons/621829360869179395/2d8adf4c18a23bd7c2a26881c4668529.webp?size=640 width=90px heigth=90px style="border-radius: 50%;">
+      </div>
+      <div class='carousel__item-body'>
+        <p class='title'>France Basket-Ball</p>
+        <p>🏀 Le serveur du basket Francophone</p>
+      </div>
+    </div>
+    <div class='carousel__item' onclick="window.open('https://discord.com/invite/YvS4uvR4aM', '_blank')">
+      <div class='carousel__item-head'>
+        <img src=https://cdn.discordapp.com/icons/749948209794908221/906f14b715e02adcefd432641854fd78.webp?size=640 width=90px heigth=90px style="border-radius: 50%;">
+      </div>
+      <div class='carousel__item-body'>
+        <p class='title'>French Astro</p>
+        <p>🚀 Toute l’actu spatiale, et plus !<br>👨‍🚀 L'équipe passionnée non monétisée !</p>
+      </div>
+    </div>
+    <div class='carousel__item' onclick="window.open('https://discord.com/invite/d3wwj5s9T7', '_blank')">
+      <div class='carousel__item-head'>
+        <img src=https://cdn.discordapp.com/icons/776870867539198012/ea4e8fef25b6f8ed2e24dbb17b1b55c2.webp?size=640 width=90px heigth=90px style="border-radius: 50%;">
+      </div>
+      <div class='carousel__item-body'>
+        <p class='title'>Appli-Bot</p>
+        <p>🤖 Le serveur officiel du bot</p>
+      </div>
+    </div>
+    <div class='carousel__item' onclick="window.open('https://discord.com/invite/cM5sFNvkpM', '_blank')">
+      <div class='carousel__item-head'>
+        <img src=https://cdn.discordapp.com/icons/776057683417104424/09110f1cefa11d1c5bf25e3c043f3c0a.webp?size=640 width=90px heigth=90px style="border-radius: 50%;">
+      </div>
+      <div class='carousel__item-body'>
+        <p class='title'>Aide aux devoirs</p>
+        <p>📚 Serveur d'entraide pour les devoirs scolaires<br>🐣 Rejoignez la communauté de plus de 600 membres !</p>
+      </div>
+    </div>
+</div>
+
   </body>
  
 </html>
