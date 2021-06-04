@@ -5,6 +5,11 @@
     <script language="javascript">
     </script>
     <title>Lieutenant X • Appli-Bot</title>
+     <meta content="Test de titre" property="og:title">
+    <meta content="Test de description" property="og:description">
+    <meta content="https://lieutenantx.github.io/api/web/stats" property="og:url">
+    <meta content="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128" property="og:image">
+    <meta content="#579B91" data-react-helmet="true" name="theme-color">
     <link rel="icon" href="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128"/>
     <link rel="stylesheet" href="styles/style.css"/>
   </head>
@@ -221,7 +226,7 @@
         cell.innerHTML = bots[i][["nom","PDF","etat","serveurs","utilisateurs"][j]]
         if (j==1){
           if (cell.innerHTML == "") {cell.innerHTML = "Indisponible"
-          }else{cell.innerHTML = "<a href='cell.innerHTML'>Disponible</a>"}
+          }else{cell.innerHTML = "<a href='cell.innerHTML' target='_blank'>Télécharger</a>"}
         }else if (j > 2){
           cell.innerHTML = Intl.NumberFormat('fr-FR', { style: 'decimal'}).format(cell.innerHTML)
         }
