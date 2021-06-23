@@ -27,7 +27,7 @@
                //alert("WebSocket is supported by your Browser!");
                
                // Let us open a web socket
-        var ws = new WebSocket("ws://192.168.1.48:8080/echo");
+        var ws = new WebSocket("wss://192.168.1.48:8080/echo");
               
         ws.onopen = function() {
           // Web Socket is connected, send data using send()
