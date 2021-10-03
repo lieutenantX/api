@@ -1,4 +1,4 @@
 ## Liens concernant Appli-Bot
 
 [site officiel](https://lieutenantx.github.io/api/web/stats)<br>
-[Discord Officiel](https://discord.com/invites/d3wwj5s9T7)
+[Discord Officiel](https://discord.com/invite/d3wwj5s9T7)
