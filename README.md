@@ -1,4 +1,4 @@
-[![Rejoignez le serveur Discord](https://discord.com/api/guilds/776870867539198012/widget.png)](https://discord.gg/ZebatWssCB)
+[![Rejoignez le serveur Discord](https://discord.com/api/guilds/776870867539198012/widget.png)](https://discord.gg/d3wwj5s9T7)
 
 ### Ce repo github est un amoncellement de nombreuses ressources et parties de code que j'utilise pour mon bot discord (**Appli-Bot**)
 
