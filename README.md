@@ -13,3 +13,11 @@ N'hésitez pas à nous rejoindre si vous voulez proposez des améliorations à a
 This repo is absolutely not dedicated to you, all the code and comments are in french. You have just to remember that all the ressources availables here can be edited or removed without previous awarning.
 I will maybe try to translate comments and other stuff of the repo later but it's absolutely not guarenteed
 Cheers ;)
+
+|ceci     |test    |
+|est      |d'un    |
+|le       |noob    |
+|---------|--------|
+|qui      |avec    |
+|s'amuse  |le      |
+|avec     |Markdown|
