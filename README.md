@@ -14,11 +14,10 @@ This repo is absolutely not dedicated to you, all the code and comments are in f
 I will maybe try to translate comments and other stuff of the repo later but it's absolutely not guarenteed
 Cheers ;)
 
-|ceci     |test    |
+|ceci     |est     |
 |---------|--------|
-|est      |d'un    |
-|le       |noob    |
-|---------|--------|
-|qui      |avec    |
-|s'amuse  |le      |
-|avec     |Markdown|
+|le       |test    |
+|d'un     |noob    |
+|qui      |s'amuse |
+|avec     |le      |
+|Markdown          |
