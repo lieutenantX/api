@@ -11,7 +11,7 @@ N'hésitez pas à nous rejoindre si vous voulez proposez des améliorations à a
 ### ------------![Rosbeef](https://cdn-icons-png.flaticon.com/24/197/197374.png)  Dear English-Speakers  ![Fuck Yeah](https://cdn-icons-png.flaticon.com/24/323/323310.png)------------
 
 This repo is absolutely not dedicated to you, all the code and comments are in french. You have just to remember that all the ressources availables here can be edited or removed without previous awarning.
-I will maybe try to translate comments and other stuff of the repo later but it's absolutely not guarenteed
+I will maybe try to translate comments and other stuff of the repo later but it's absolutely not guarenteed.\n
 Cheers ;)
 
 |ceci     |est     |
