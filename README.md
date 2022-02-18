@@ -1,4 +1,4 @@
-[![Rejoignez le serveur Discord](https://discord.com/api/guilds/776870867539198012/widget.png)](https://discord.gg/d3wwj5s9T7)   [![Un uptime de malade !](https://raster.shields.io/badge/uptime-99%2c94%25-brightgreen)](https://lieutenantx.github.io/api/web/stats)
+[![Rejoignez le serveur Discord](https://discord.com/api/guilds/776870867539198012/widget.png)](https://discord.gg/d3wwj5s9T7)   [![Un uptime de malade !](https://raster.shields.io/badge/uptime-99%2c96%25-brightgreen)](https://lieutenantx.github.io/api/web/stats)
 
 ### Ce repo github est un amoncellement de nombreuses ressources et parties de code que j'utilise pour mon bot discord (**Appli-Bot**)
 
