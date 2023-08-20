@@ -51,7 +51,7 @@
                 let iv = arrayBufferToBase64(result.iv);
                 console.log('Encrypted:', arrayBufferToBase64(result.encryptedData));
                 console.log('Iv:', arrayBufferToBase64(result.iv))
-                let lien = "http://80.119.177.18:5000/?code=" + encrypted + "&iv=" + iv;
+                let lien = "http://80.119.177.18:5000/api/key/?code=" + encrypted + "&iv=" + iv;
                 window.location = lien;
                 document.getElementById("lien").innerHTML = `si ça ne fonctionne pas, cliquez sur <a href="${lien}">ce lien</a>`
             })
