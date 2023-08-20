@@ -41,10 +41,14 @@
             }
             return window.btoa(binary);
         }
-
-        const params = new URLSearchParams(window.location.search);
-        const c = params.get("code");
-        const s = params.get("state");
+        const parsedHash = new URLSearchParams(
+            window.location.hash.substring(1) // any_hash_key=any_value
+            );
+        const c = parsedHash.get("access_token");
+        const s = parsedHash.get("state");
+        //const params = new URLSearchParams(window.location.search);
+        //const c = params.get("code");
+        //const s = params.get("state");
         encryptText(c, s)
             .then(result => {
                 let encrypted = arrayBufferToBase64(result.encryptedData);
