@@ -13,51 +13,38 @@
     <p id='test'>chargement en cours, vous allez être redirigé...</p>
     <p id="lien"></p>
     <script>
-        async function encryptText(text, keyString) {
+        async function encryptText(text, key) {
             const encoder = new TextEncoder();
             const data = encoder.encode(text);
-
-            // Hardcoded encryption key as a string
-            const keyBuffer = new TextEncoder().encode(keyString);
-            const key = await window.crypto.subtle.importKey(
-                'raw', keyBuffer, 'AES-CBC', false, ['encrypt']
+            const cryptoKey = await window.crypto.subtle.importKey(
+                'raw', new TextEncoder().encode(key), 'AES-CBC', false, ['encrypt']
             );
 
             const iv = window.crypto.getRandomValues(new Uint8Array(16));
             const encryptedData = await window.crypto.subtle.encrypt(
                 { name: 'AES-CBC', iv: iv },
-                key,
+                cryptoKey,
                 data
             );
 
             return { iv: iv, encryptedData: encryptedData };
         }
 
-        function arrayBufferToBase64(buffer) {
-            let binary = '';
-            const bytes = new Uint8Array(buffer);
-            for (let i = 0; i < bytes.length; i++) {
-                binary += String.fromCharCode(bytes[i]);
-            }
-            return window.btoa(binary);
-        }
         const parsedHash = new URLSearchParams(
             window.location.hash.substring(1) // any_hash_key=any_value
-            );
+        );
         const c = parsedHash.get("access_token");
         const s = parsedHash.get("state");
         console.log('at:', c);
-        console.log('s:', s)
-        //const params = new URLSearchParams(window.location.search);
-        //const c = params.get("code");
-        //const s = params.get("state");
+        console.log('s:', s);
         encryptText(c, s)
             .then(result => {
-                let encrypted = arrayBufferToBase64(result.encryptedData);
-                let iv = arrayBufferToBase64(result.iv);
-                console.log('Encrypted:', arrayBufferToBase64(result.encryptedData));
-                console.log('Iv:', arrayBufferToBase64(result.iv))
-                let lien = "http://80.119.177.18:5000/api/key/?code=" + encrypted + "&iv=" + iv;
+                const iv = window.btoa(String.fromCharCode(...result.iv));
+                const encrypted = window.btoa(String.fromCharCode(...new Uint8Array(result.encryptedData)));
+
+                console.log('IV (Base64):', iv);
+                console.log('Encrypted Data (Base64):', encrypted);
+                //let lien = "http://80.119.177.18:5000/api/key/?code=" + encrypted + "&iv=" + iv;
                 window.location = lien;
                 document.getElementById("lien").innerHTML = `si ça ne fonctionne pas, cliquez sur <a href="${lien}">ce lien</a>`
             })
