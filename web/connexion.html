@@ -4,16 +4,20 @@
   <head>
     <title>Connexion Discord</title>
     <link rel="icon" href="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=128">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
   </head>
  
   <body>
-    <p id='test'>chargement...</p>
+    <p id='test'>chargement en cours, vous allez être redirigé...</p>
+    <p id="lien"></p>
    <script>
-    const params = new URLSearchParams(queryString);
+    const params = new URLSearchParams(window.location.search);
     const c = params.get("code");
-    const s = params.get("state");
-    document.write(c);
-    document.write(s);
+    let s = params.get("state");
+    var encrypted = CryptoJS.AES.encrypt(c, s);
+    let lien = "http://80.119.177.18:5000/?code=" + encrypted;
+    window.location = lien;
+    document.getElementById("lien").innerHTML = `si ça ne fonctionne pas, cliquez sur <a href="${lien}">ce lien</a>`
    </script>
   </body>
  
