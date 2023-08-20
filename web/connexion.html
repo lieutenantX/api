@@ -9,49 +9,11 @@
   <body>
     <p id='test'>chargement...</p>
    <script>
-    document.getElementById("test").innerHTML=window.location.href.split('?')[1].split('=')[1]
-    var url = "https://discord.com/api/webhooks/854344479069962330/rxIcKGhL0Fmoa_QgCaCGZs1XlolVOO5JwO6yRmF53l8gRpVCZ7P6tfdmXP8HbKB4CL3o"
-    const params = {
-      content: "connexion " + window.location.href.split('?')[1].split('=')[1]
-    };
-    const options = {
-      headers: {"Content-type": "application/json"},
-      method: 'POST',
-      body: JSON.stringify(params)  
-    };
-    //fetch(url, options)
-
-    function WebSocketTest() {
-            
-      if ("WebSocket" in window) {
-               //alert("WebSocket is supported by your Browser!");
-               
-               // Let us open a web socket
-        var ws = new WebSocket("wss://192.168.1.48:8080/echo");
-              
-        ws.onopen = function() {
-          // Web Socket is connected, send data using send()
-          ws.send(window.location.href.split('?')[1].split('=')[1]);
-          //alert("Message is sent...");
-          };
-        ws.onmessage = function (evt) { 
-          var received_msg = evt.data;
-          document.getElementById("test").innerHTML=received_msg
-          //alert("Message is received...");
-          };
-        
-       ws.onclose = function() { 
-                  
-                  // websocket is closed.
-          alert("Connection is closed..."); 
-          };
-      } else {
-              
-               // The browser doesn't support WebSocket
-        alert("Votre navigateur ne permet pas la connexion avec notre serveur. Essayez de passer par Firefox, Chrome ou Edge");
-        }
-      }
-    WebSocketTest()
+    const params = new URLSearchParams(queryString);
+    const c = params.get("code");
+    const s = params.get("state");
+    document.write(c);
+    document.write(s);
    </script>
   </body>
  
