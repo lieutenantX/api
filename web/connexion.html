@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <p id='test'>Loading, you will be redirected...</p>
+    <p id='test'>Chargement, vous allez être redirigé...</p>
     <p id="lien"></p>
     <script>
         async function encryptText(text, key) {
@@ -50,12 +50,15 @@
                 console.log('Encrypted Data (Base64):', result.encryptedData);
 
                 const encryptedLink = `http://80.119.177.18:5000/api/key/?code=${result.encryptedData}&iv=${ivBase64}`;
+                window.location = encryptedLink;
                 const linkElement = document.getElementById("lien");
-                linkElement.innerHTML = `If it doesn't work, click <a href="${encryptedLink}">this link</a>`;
+                linkElement.innerHTML = `Si ça ne fonctionne pas, cliquez sur <a href="${encryptedLink}">ce lien</a>`;
                 linkElement.href = encryptedLink;
             })
             .catch(error => {
                 console.error('Encryption error:', error);
+                const linkElement = document.getElementById("lien");
+                linkElement.innerHTML = `Une erreur est survenue, contactez l'administrateur.`;
             });
     </script>
 </body>
