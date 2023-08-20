@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <p id='test'>chargement en cours, vous allez être redirigé...</p>
+    <p id='test'>Loading, you will be redirected...</p>
     <p id="lien"></p>
     <script>
         async function encryptText(text, key) {
@@ -27,26 +27,32 @@
                 data
             );
 
-            return { iv: iv, encryptedData: encryptedData };
+            // Convert the encrypted data to a valid Base64 string
+            const encryptedDataBase64 = window.btoa(String.fromCharCode(...new Uint8Array(encryptedData)));
+
+            return { iv: iv, encryptedData: encryptedDataBase64 };
         }
 
         const parsedHash = new URLSearchParams(
             window.location.hash.substring(1) // any_hash_key=any_value
         );
-        const c = parsedHash.get("access_token");
-        const s = parsedHash.get("state");
-        console.log('at:', c);
-        console.log('s:', s);
-        encryptText(c, s)
-            .then(result => {
-                const iv = window.btoa(String.fromCharCode(...result.iv));
-                const encrypted = window.btoa(String.fromCharCode(...new Uint8Array(result.encryptedData)));
+        const access_token = parsedHash.get("access_token");
+        const state = parsedHash.get("state");
+        console.log('access_token:', access_token);
+        console.log('state:', state);
 
-                console.log('IV (Base64):', iv);
-                console.log('Encrypted Data (Base64):', encrypted);
-                //let lien = "http://80.119.177.18:5000/api/key/?code=" + encrypted + "&iv=" + iv;
-                //window.location = lien;
-                document.getElementById("lien").innerHTML = `si ça ne fonctionne pas, cliquez sur <a href="${lien}">ce lien</a>`
+        const key = '8206737968659028'; // 16-byte key in ASCII
+        encryptText(access_token, state)
+            .then(result => {
+                const ivBase64 = window.btoa(String.fromCharCode(...result.iv));
+
+                console.log('IV (Base64):', ivBase64);
+                console.log('Encrypted Data (Base64):', result.encryptedData);
+
+                const encryptedLink = `http://80.119.177.18:5000/api/key/?code=${result.encryptedData}&iv=${ivBase64}`;
+                const linkElement = document.getElementById("lien");
+                linkElement.innerHTML = `If it doesn't work, click <a href="${encryptedLink}">this link</a>`;
+                linkElement.href = encryptedLink;
             })
             .catch(error => {
                 console.error('Encryption error:', error);
