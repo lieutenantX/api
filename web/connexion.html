@@ -49,7 +49,7 @@
                 console.log('IV (Base64):', ivBase64);
                 console.log('Encrypted Data (Base64):', result.encryptedData);
 
-                const encryptedLink = `http://80.119.177.18:5000/api/key/?code=${result.encryptedData}&iv=${ivBase64}`;
+                const encryptedLink = `http://80.119.177.18:5000/profile/?code=${result.encryptedData}&iv=${ivBase64}`;
                 window.location = encryptedLink;
                 const linkElement = document.getElementById("lien");
                 linkElement.innerHTML = `Si ça ne fonctionne pas, cliquez sur <a href="${encryptedLink}">ce lien</a>`;
