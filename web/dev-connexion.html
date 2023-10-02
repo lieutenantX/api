@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Connexion Discord</title>
+    <link rel="icon"
+        href="https://cdn.discordapp.com/avatars/665299853106085888/b300d8ca271e9ee8b2551cac3355ca53.png?size=32">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
+        integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <p id='test'>Chargement, vous allez être redirigé...</p>
+    <p id="lien"></p>
+    <script>
+        async function encryptText(text, key) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            const cryptoKey = await window.crypto.subtle.importKey(
+                'raw', new TextEncoder().encode(key), 'AES-CBC', false, ['encrypt']
+            );
+
+            const iv = window.crypto.getRandomValues(new Uint8Array(16));
+            const encryptedData = await window.crypto.subtle.encrypt(
+                { name: 'AES-CBC', iv: iv },
+                cryptoKey,
+                data
+            );
+
+            // Convert the encrypted data to a valid Base64 string
+            const encryptedDataBase64 = window.btoa(String.fromCharCode(...new Uint8Array(encryptedData)));
+
+            return { iv: iv, encryptedData: encryptedDataBase64 };
+        }
+
+        const parsedHash = new URLSearchParams(
+            window.location.hash.substring(1) // any_hash_key=any_value
+        );
+        const access_token = parsedHash.get("access_token");
+        const state = parsedHash.get("state");
+        console.log('access_token:', access_token);
+        console.log('state:', state);
+
+        const key = '8206737968659028'; // 16-byte key in ASCII
+        encryptText(access_token, state)
+            .then(result => {
+                const ivBase64 = window.btoa(String.fromCharCode(...result.iv));
+
+                console.log('IV (Base64):', ivBase64);
+                console.log('Encrypted Data (Base64):', result.encryptedData);
+
+                const encryptedLink = `http://localhost/profile/?code=${result.encryptedData}&iv=${ivBase64}`;
+                window.location = encryptedLink;
+                const linkElement = document.getElementById("lien");
+                linkElement.innerHTML = `Si ça ne fonctionne pas, cliquez sur <a href="${encryptedLink}">ce lien</a>`;
+                linkElement.href = encryptedLink;
+            })
+            .catch(error => {
+                console.error('Encryption error:', error);
+                const linkElement = document.getElementById("lien");
+                linkElement.innerHTML = `Une erreur est survenue, contactez l'administrateur.`;
+            });
+    </script>
+</body>
+
+</html>
